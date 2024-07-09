@@ -1,0 +1,32 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "750ccb1b93888e35f71ab9eb780cf4bd"
+name = "pricing-optimization-app"
+handle = "pricing-optimization-app"
+application_url = "https://features-ts-drinking-atmosphere.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "pricing-optimization.myshopify.com"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://features-ts-drinking-atmosphere.trycloudflare.com/auth/callback",
+  "https://features-ts-drinking-atmosphere.trycloudflare.com/auth/shopify/callback",
+  "https://features-ts-drinking-atmosphere.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-07"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks"
+
+[pos]
+embedded = false
